@@ -158,3 +158,7 @@ Ask Claude to build several tasks with subagents, or say "use lean-agent-runs". 
 | `LEAN_ALWAYS_RANGED` | empty | Path endings that are always read by range |
 
 The role agents use `Bash`. On Windows without Git Bash, change `Bash` to `PowerShell` in `agents/*.md`.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
