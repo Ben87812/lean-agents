@@ -1,0 +1,28 @@
+start            session  agents   tokens  cost-wt  first prompt
+2026-01-01T00:00 aaaa1111      2     0.1M     0.0M  Fix the bug in calc
+session aaaa1111-0000-4000-8000-000000000000  (Fix the bug in calc)
+  elapsed 0.1 h (first to last message, idle time included); agents 2
+  tokens 0.1M; cost-weighted 0.0M (reads 57%, writes 23%, output 19%)
+  agent start-up context: median 7.0k
+  five largest agents: 56% of tokens; largest peak context 21k
+  lead peak context: 21k
+  tokens on calls above 100k context: 0%
+  cache rewritten after gaps over 5 min: 0.0M tokens
+  tool calls per model call: 0.67
+  by role:  builder 47% (1), lead 44% (1), reviewer 9% (1)
+  by model: claude-opus-5-5 91%, claude-sonnet-5-5 9%
+| | Run 1 |
+|---|---|
+| Tokens | 0.1M |
+| Cost-weighted tokens | 0.0M |
+| Elapsed hours (idle included) | 0.1 |
+| Agents | 2 |
+| Agent start-up (median) | 7.0k |
+| Largest agent context | 21k |
+| Lead peak context | 21k |
+| Tokens on calls above 100k context | 0% |
+| Tool calls per model call | 0.67 |
+| By role | builder 47%, lead 44%, reviewer 9% |
+| By model | claude-opus-5-5 91%, claude-sonnet-5-5 9% |
+
+Measured with lean-agents scripts/agent-tokens.py --share

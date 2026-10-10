@@ -1,0 +1,58 @@
+name: Share your results
+description: Post your before-and-after numbers so the method can be checked on more codebases.
+title: "Results: "
+labels: ["results"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for measuring. Run one normal session without the plugin and one with it, on similar work, then:
+
+        ```
+        python <lean-agents folder>/scripts/agent-tokens.py --share <before session> <after session>
+        ```
+
+        A session is an id prefix from `agent-tokens.py` run in the repository, or the path to its `.jsonl` transcript. The output holds numbers only: no prompts, paths, session ids or dates.
+  - type: textarea
+    id: table
+    attributes:
+      label: The --share table
+      description: Paste the output as it is.
+      render: markdown
+    validations:
+      required: true
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size of the run
+      options:
+        - "Small: under 1 hour, a few short tasks"
+        - "Medium: 1 to 4 hours, several features"
+        - "Large: more than 4 hours, or many agents at once"
+    validations:
+      required: true
+  - type: input
+    id: codebase
+    attributes:
+      label: Codebase
+      description: Language and rough size, or a public repository and commit if you can share it.
+      placeholder: "TypeScript + Go, about 120k lines"
+  - type: dropdown
+    id: same-tasks
+    attributes:
+      label: Were the before and after runs the same tasks?
+      options:
+        - "Yes: the same tasks from the same commit"
+        - "No: different tasks of similar size"
+    validations:
+      required: true
+  - type: textarea
+    id: quality
+    attributes:
+      label: Quality
+      description: Did both runs finish the work? Anything about tests, review findings or rework that changed.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: Settings you changed, the model, problems with the plugin, ideas.

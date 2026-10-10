@@ -1,0 +1,10 @@
+{
+  "repo": "https://github.com/go-task/task.git",
+  "base_commit": "993508c782eefe02fedf4a89294fa62fceef87be",
+  "setup": [
+    "go mod download"
+  ],
+  "suite_cmd": "go test ./...",
+  "failure_regex": "^(?:--- FAIL: |FAIL\\s+)(\\S+)",
+  "notes": "Go is installed and the module's dependencies are downloaded. Don't run go get or change go.mod. Run tests with go test (for example go test . -run TestName, or go test ./taskfile/ast/)."
+}

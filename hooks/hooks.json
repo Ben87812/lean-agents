@@ -1,0 +1,19 @@
+{
+  "description": "Block whole-file reads and prints of large files, and whole-branch diffs, so agents read by range.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/run.sh\" read_guard.py", "timeout": 10 }
+        ]
+      },
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/run.sh\" shell_guard.py", "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}

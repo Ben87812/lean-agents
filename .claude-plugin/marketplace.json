@@ -1,0 +1,12 @@
+{
+  "name": "lean-agents",
+  "owner": { "name": "lean-agents" },
+  "description": "Lean multi-agent runs for Claude Code.",
+  "plugins": [
+    {
+      "name": "lean-agents",
+      "source": "./",
+      "description": "Cut the tokens multi-agent Claude Code runs use, and measure it."
+    }
+  ]
+}

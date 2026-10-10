@@ -1,0 +1,2412 @@
+{
+ "tier": "long",
+ "date": "2026-10-10",
+ "cap": 100000000.0,
+ "runs_per_arm": 1,
+ "tasks": [
+  "timeouts"
+ ],
+ "arms": [
+  {
+   "arm": "baseline",
+   "ref": null,
+   "cap": 100000000.0,
+   "session": "92e9ba24-9bc8-494a-9ad5-c330934985fb",
+   "wall_s": 2344,
+   "stopped": null,
+   "exit": 0,
+   "usd": 6.6536972000000025,
+   "grade": {
+    "new_failures": [],
+    "tasks": [
+     {
+      "task": "timeouts",
+      "hidden": "fail",
+      "detail": "d or method String)\n.\\timeout_test.go:284:26: buff.String undefined (type SyncBuffer has no field or method String)\n.\\timeout_test.go:285:29: buff.String undefined (type SyncBuffer has no field or method String)\n.\\timeout_test.go:356:32: buff.String undefined (type SyncBuffer has no field or method String)\n.\\timeout_test.go:375:29: buff.String undefined (type SyncBuffer has no field or method String)\n.\\timeout_test.go:377:27: buff.String undefined (type SyncBuffer has no field or method String)\n",
+      "hidden_alone": "pass",
+      "set_aside": [
+       "errors/errors_task_test.go",
+       "taskfile/ast/timeout_test.go",
+       "timeout_test.go"
+      ]
+     }
+    ]
+   },
+   "measure": {
+    "sid": "92e9ba24-9bc8-494a-9ad5-c330934985fb",
+    "label": "Complete the tasks described in ../tasks.md in this reposito",
+    "hours": 0.6216608333333333,
+    "agents": 4,
+    "tokens": 12074610,
+    "cost": 1746978.85,
+    "reads": 0.6670507774035158,
+    "writes": 0.2908027478409369,
+    "output": 0.04198390839133513,
+    "startup": 30570.0,
+    "top5": 0.9406402359993408,
+    "peak": 151203,
+    "lead_peak": 66637,
+    "above": 0.45087634300403906,
+    "rewrites": 0,
+    "per_call": 1.158273381294964,
+    "by_role": [
+     [
+      "runner",
+      0.5727643377301627,
+      1
+     ],
+     [
+      "general-purpose",
+      0.22867488059655758,
+      1
+     ],
+     [
+      "reviewer",
+      0.13920101767262047,
+      2
+     ],
+     [
+      "lead",
+      0.05935976400065923,
+      1
+     ]
+    ],
+    "by_model": [
+     [
+      "claude-opus-5-5",
+      1.0
+     ]
+    ],
+    "diagnosis": {
+     "total": 12074610,
+     "causes": [
+      {
+       "cause": "other context",
+       "tokens": 4502602,
+       "share": 0.37289835862193477,
+       "fix": "Context that grew with no recorded source: compaction summaries, attachments",
+       "culprits": [
+        [
+         "Timeout: execution wiring + tests",
+         3151886
+        ],
+        [
+         "Timeout: parsing, errors, docs",
+         853040
+        ],
+        [
+         "Review part 2 timeout execution",
+         363983
+        ]
+       ]
+      },
+      {
+       "cause": "start-up",
+       "tokens": 4426029,
+       "share": 0.3665566838183594,
+       "fix": "Use role agents, disable plugins the repository never uses, switch claude.ai connectors off",
+       "culprits": [
+        [
+         "Timeout: execution wiring + tests",
+         1911274
+        ],
+        [
+         "Timeout: parsing, errors, docs",
+         1163066
+        ],
+        [
+         "(main thread)",
+         560183
+        ]
+       ]
+      },
+      {
+       "cause": "shell output",
+       "tokens": 1301001,
+       "share": 0.10774686084624402,
+       "fix": "Lower bashOutputMaxChars and put quiet test flags in the brief",
+       "culprits": [
+        [
+         "git show HEAD --stat && git show HEAD -- errors/ taskfile/ast/ | head -300",
+         138684
+        ],
+        [
+         "cat internal/execext/exec.go && grep -n \"executionHashes\\|IgnoreError\\|Timeout\\|",
+         96140
+        ],
+        [
+         "cat taskfile/ast/timeout.go taskfile/ast/cmd.go taskfile/ast/defer.go && ls && w",
+         93765
+        ]
+       ]
+      },
+      {
+       "cause": "messages",
+       "tokens": 848598,
+       "share": 0.07027950395675378,
+       "fix": "Cut hook output and long pasted text; system reminders count here",
+       "culprits": [
+        [
+         "mcp_instructions_delta",
+         364780
+        ],
+        [
+         "agent_listing_delta",
+         284046
+        ],
+        [
+         "deferred_tools_record",
+         72946
+        ]
+       ]
+      },
+      {
+       "cause": "file reads",
+       "tokens": 567344,
+       "share": 0.04698654863386892,
+       "fix": "Lower LEAN_MAX_LINES or add these paths to LEAN_ALWAYS_RANGED, so they are read by range",
+       "culprits": [
+        [
+         "C:\\bw\\run4\\long\\baseline\\repo\\task.go (whole)",
+         275745
+        ],
+        [
+         "C:\\bw\\run4\\long\\baseline\\repo\\variables.go",
+         86290
+        ],
+        [
+         "C:\\bw\\run4\\long\\baseline\\repo\\website\\src\\public\\schema.json",
+         44744
+        ]
+       ]
+      },
+      {
+       "cause": "own output",
+       "tokens": 162479,
+       "share": 0.013456227333616781,
+       "fix": "Ask for shorter replies and plans; large Write and Edit contents count here",
+       "culprits": [
+        [
+         "Timeout: execution wiring + tests",
+         86295
+        ],
+        [
+         "(main thread)",
+         40665
+        ],
+        [
+         "Timeout: parsing, errors, docs",
+         30060
+        ]
+       ]
+      },
+      {
+       "cause": "re-reads",
+       "tokens": 157897,
+       "share": 0.013076757758635683,
+       "fix": "Write module notes and put what agents need in the brief",
+       "culprits": [
+        [
+         "C:\\bw\\run4\\long\\baseline\\tasks.md",
+         80006
+        ],
+        [
+         "C:\\bw\\run4\\long\\baseline\\repo\\task.go",
+         52274
+        ],
+        [
+         "C:\\bw\\run4\\long\\baseline\\repo\\website\\src\\docs\\reference\\schema.md",
+         14915
+        ]
+       ]
+      },
+      {
+       "cause": "search output",
+       "tokens": 41307,
+       "share": 0.003421000761101187,
+       "fix": "Search narrower: give a path or glob, and limit the matches",
+       "culprits": [
+        [
+         "Grep Cmd\\{|Dep\\{|Silent:\\s",
+         23196
+        ],
+        [
+         "Grep context\\.(Canceled|DeadlineExceeded)|ctx.Err\\(\\)|cancel\\(\\)",
+         7661
+        ],
+        [
+         "Grep timeout",
+         5978
+        ]
+       ]
+      },
+      {
+       "cause": "subagent reports",
+       "tokens": 30655,
+       "share": 0.002538798354563833,
+       "fix": "Ask the role agents for shorter reports",
+       "culprits": [
+        [
+         "Timeout: parsing, errors, docs",
+         12974
+        ],
+        [
+         "Review part 1 timeout changes",
+         9008
+        ],
+        [
+         "Timeout: execution wiring + tests",
+         5324
+        ]
+       ]
+      },
+      {
+       "cause": "other tool output",
+       "tokens": 22029,
+       "share": 0.0018243966605391289,
+       "fix": "Check which tool this is and whether its output can be cut",
+       "culprits": [
+        [
+         "Edit",
+         16914
+        ],
+        [
+         "Write",
+         4789
+        ],
+        [
+         "SendMessage",
+         326
+        ]
+       ]
+      }
+     ],
+     "patterns": [
+      {
+       "pattern": "long agents",
+       "value": 5446604,
+       "unit": "tokens",
+       "fix": "Hand over earlier: lower maxTurns or the hand-over round in the agent prompt",
+       "culprits": [
+        [
+         "Timeout: execution wiring + tests",
+         5446604
+        ]
+       ]
+      },
+      {
+       "pattern": "model mix",
+       "value": 8596704,
+       "unit": "tokens",
+       "fix": "Set the model per role: the smallest for runners, mid-tier for reviewers and shippers",
+       "culprits": [
+        [
+         "Timeout: execution wiring + tests",
+         6915906
+        ],
+        [
+         "Review part 2 timeout execution",
+         1236330
+        ],
+        [
+         "Review part 1 timeout changes",
+         444468
+        ]
+       ]
+      }
+     ],
+     "coverage": 0.4101841559085303
+    },
+    "health": [],
+    "series": [
+     {
+      "ts": "2026-10-10T15:52:25.640Z",
+      "ctx": 43091,
+      "out": 117,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:52:30.243Z",
+      "ctx": 44929,
+      "out": 242,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:53:13.829Z",
+      "ctx": 47608,
+      "out": 207,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:53:26.682Z",
+      "ctx": 47984,
+      "out": 1834,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:59:23.670Z",
+      "ctx": 52317,
+      "out": 635,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:01:38.110Z",
+      "ctx": 54746,
+      "out": 302,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:01:41.564Z",
+      "ctx": 55168,
+      "out": 138,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:01:44.269Z",
+      "ctx": 55492,
+      "out": 95,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:02:36.899Z",
+      "ctx": 56665,
+      "out": 291,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:02:59.128Z",
+      "ctx": 57238,
+      "out": 1703,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:15:47.300Z",
+      "ctx": 61697,
+      "out": 1069,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:20:07.136Z",
+      "ctx": 65394,
+      "out": 1115,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:20:15.941Z",
+      "ctx": 66637,
+      "out": 32,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:15:55.686Z",
+      "ctx": 30533,
+      "out": 6,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:16:00.155Z",
+      "ctx": 44874,
+      "out": 3,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:16:18.470Z",
+      "ctx": 58064,
+      "out": 3,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:16:21.376Z",
+      "ctx": 60778,
+      "out": 91,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:16:25.317Z",
+      "ctx": 62953,
+      "out": 8,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:16:54.136Z",
+      "ctx": 64280,
+      "out": 8,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:16:57.979Z",
+      "ctx": 68684,
+      "out": 129,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:17:15.373Z",
+      "ctx": 68960,
+      "out": 7,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:17:30.280Z",
+      "ctx": 71397,
+      "out": 5,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:17:56.675Z",
+      "ctx": 73268,
+      "out": 8,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:18:11.580Z",
+      "ctx": 76288,
+      "out": 3,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:18:25.460Z",
+      "ctx": 76562,
+      "out": 252,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:18:38.900Z",
+      "ctx": 76864,
+      "out": 8,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:19:02.254Z",
+      "ctx": 78543,
+      "out": 3,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:19:33.829Z",
+      "ctx": 79239,
+      "out": 8,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:19:36.925Z",
+      "ctx": 80897,
+      "out": 114,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:19:39.348Z",
+      "ctx": 81328,
+      "out": 8,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:19:48.718Z",
+      "ctx": 82149,
+      "out": 5,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T15:53:42.784Z",
+      "ctx": 30607,
+      "out": 16,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:53:45.747Z",
+      "ctx": 42253,
+      "out": 170,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:53:48.466Z",
+      "ctx": 43873,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:53:54.305Z",
+      "ctx": 44810,
+      "out": 152,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:53:56.281Z",
+      "ctx": 46586,
+      "out": 136,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:53:59.353Z",
+      "ctx": 51092,
+      "out": 10,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:54:12.659Z",
+      "ctx": 53663,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:54:14.336Z",
+      "ctx": 55634,
+      "out": 31,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:54:29.955Z",
+      "ctx": 57159,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:54:51.530Z",
+      "ctx": 59683,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:54:59.463Z",
+      "ctx": 61034,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:55:07.190Z",
+      "ctx": 64122,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:55:10.722Z",
+      "ctx": 65054,
+      "out": 3,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:55:17.833Z",
+      "ctx": 68196,
+      "out": 3,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:55:21.835Z",
+      "ctx": 68560,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:55:30.863Z",
+      "ctx": 69109,
+      "out": 3,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:56:12.908Z",
+      "ctx": 71262,
+      "out": 3,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:56:15.360Z",
+      "ctx": 72398,
+      "out": 16,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:56:18.027Z",
+      "ctx": 74535,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:56:26.532Z",
+      "ctx": 75579,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:56:30.007Z",
+      "ctx": 76752,
+      "out": 16,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:56:38.503Z",
+      "ctx": 81056,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:56:51.019Z",
+      "ctx": 83498,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:56:56.521Z",
+      "ctx": 83883,
+      "out": 6,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:57:00.164Z",
+      "ctx": 84453,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:57:05.190Z",
+      "ctx": 85000,
+      "out": 10,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:57:19.008Z",
+      "ctx": 86762,
+      "out": 330,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:57:22.481Z",
+      "ctx": 87393,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:57:26.237Z",
+      "ctx": 88156,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:57:30.733Z",
+      "ctx": 88859,
+      "out": 290,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:57:37.285Z",
+      "ctx": 89215,
+      "out": 234,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:58:11.216Z",
+      "ctx": 89717,
+      "out": 6,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:58:23.951Z",
+      "ctx": 90281,
+      "out": 161,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:59:10.573Z",
+      "ctx": 90750,
+      "out": 8,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T16:01:41.408Z",
+      "ctx": 93248,
+      "out": 100,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T16:01:46.563Z",
+      "ctx": 93591,
+      "out": 16,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T16:01:54.063Z",
+      "ctx": 94631,
+      "out": 247,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T16:02:31.767Z",
+      "ctx": 96009,
+      "out": 618,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T16:03:15.751Z",
+      "ctx": 30827,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:03:18.986Z",
+      "ctx": 45147,
+      "out": 16,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:03:20.952Z",
+      "ctx": 57036,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:03:24.153Z",
+      "ctx": 60299,
+      "out": 113,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:03:34.234Z",
+      "ctx": 63183,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:03:42.444Z",
+      "ctx": 65297,
+      "out": 165,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:03:46.429Z",
+      "ctx": 65731,
+      "out": 328,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:03:49.613Z",
+      "ctx": 67808,
+      "out": 9,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:03:54.343Z",
+      "ctx": 69778,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:04:29.157Z",
+      "ctx": 70722,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:05:34.731Z",
+      "ctx": 74539,
+      "out": 5,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:05:57.344Z",
+      "ctx": 82391,
+      "out": 7,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:05:59.618Z",
+      "ctx": 85800,
+      "out": 35,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:06:07.969Z",
+      "ctx": 86519,
+      "out": 103,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:06:09.656Z",
+      "ctx": 86742,
+      "out": 5,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:06:21.156Z",
+      "ctx": 87896,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:06:33.497Z",
+      "ctx": 88878,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:06:47.534Z",
+      "ctx": 91072,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:06:58.723Z",
+      "ctx": 92544,
+      "out": 6,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:07:20.720Z",
+      "ctx": 96230,
+      "out": 7,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:07:51.889Z",
+      "ctx": 100444,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:07:55.934Z",
+      "ctx": 104592,
+      "out": 9,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:07:58.737Z",
+      "ctx": 104853,
+      "out": 114,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:08:00.440Z",
+      "ctx": 105335,
+      "out": 5,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:08:11.589Z",
+      "ctx": 106774,
+      "out": 5,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:08:48.106Z",
+      "ctx": 111748,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:09:01.299Z",
+      "ctx": 112531,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:09:30.586Z",
+      "ctx": 113399,
+      "out": 7,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:10:18.892Z",
+      "ctx": 114299,
+      "out": 9,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:10:46.505Z",
+      "ctx": 114689,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:11:11.466Z",
+      "ctx": 114997,
+      "out": 193,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:11:54.034Z",
+      "ctx": 115411,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:12:14.205Z",
+      "ctx": 115706,
+      "out": 223,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:12:57.190Z",
+      "ctx": 116015,
+      "out": 128,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:13:03.311Z",
+      "ctx": 120185,
+      "out": 6,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:15:01.749Z",
+      "ctx": 121069,
+      "out": 5,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:15:18.317Z",
+      "ctx": 124201,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:15:30.591Z",
+      "ctx": 124783,
+      "out": 3,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:20:34.388Z",
+      "ctx": 128008,
+      "out": 3,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:20:37.863Z",
+      "ctx": 130904,
+      "out": 168,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:20:40.409Z",
+      "ctx": 131566,
+      "out": 16,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:20:42.582Z",
+      "ctx": 132323,
+      "out": 54,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:20:52.926Z",
+      "ctx": 133983,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:20:57.824Z",
+      "ctx": 134755,
+      "out": 7,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:21:00.669Z",
+      "ctx": 136196,
+      "out": 40,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:21:08.882Z",
+      "ctx": 137581,
+      "out": 22,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:21:12.807Z",
+      "ctx": 138498,
+      "out": 16,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:21:16.494Z",
+      "ctx": 139590,
+      "out": 186,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:21:18.811Z",
+      "ctx": 141028,
+      "out": 4,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:21:55.499Z",
+      "ctx": 144687,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:21:58.892Z",
+      "ctx": 145047,
+      "out": 230,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:22:01.627Z",
+      "ctx": 145594,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:22:04.086Z",
+      "ctx": 145926,
+      "out": 16,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:22:25.607Z",
+      "ctx": 146675,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:22:30.489Z",
+      "ctx": 147033,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:23:34.537Z",
+      "ctx": 147877,
+      "out": 122,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:24:00.251Z",
+      "ctx": 148136,
+      "out": 247,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:24:35.373Z",
+      "ctx": 148422,
+      "out": 260,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:26:59.166Z",
+      "ctx": 148815,
+      "out": 233,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:28:20.343Z",
+      "ctx": 149078,
+      "out": 5,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:29:40.415Z",
+      "ctx": 150200,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:29:43.619Z",
+      "ctx": 151203,
+      "out": 16,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T15:59:29.429Z",
+      "ctx": 30239,
+      "out": 17,
+      "agent": 4
+     },
+     {
+      "ts": "2026-10-10T15:59:39.408Z",
+      "ctx": 48177,
+      "out": 7,
+      "agent": 4
+     },
+     {
+      "ts": "2026-10-10T15:59:53.066Z",
+      "ctx": 54772,
+      "out": 8,
+      "agent": 4
+     },
+     {
+      "ts": "2026-10-10T16:00:36.469Z",
+      "ctx": 59151,
+      "out": 8,
+      "agent": 4
+     },
+     {
+      "ts": "2026-10-10T16:01:10.300Z",
+      "ctx": 61380,
+      "out": 8,
+      "agent": 4
+     },
+     {
+      "ts": "2026-10-10T16:01:13.515Z",
+      "ctx": 63268,
+      "out": 6,
+      "agent": 4
+     },
+     {
+      "ts": "2026-10-10T16:01:16.267Z",
+      "ctx": 63544,
+      "out": 148,
+      "agent": 4
+     },
+     {
+      "ts": "2026-10-10T16:01:29.365Z",
+      "ctx": 63725,
+      "out": 10,
+      "agent": 4
+     }
+    ]
+   },
+   "figures": {
+    "tokens": 12074610,
+    "cost": 1746978.85,
+    "usd": 6.6536972000000025,
+    "passed": 0,
+    "of": 1,
+    "tokens_per_pass": null,
+    "wall_min": 39.06666666666667,
+    "min_per_task": 39.06666666666667,
+    "above_100k": 0.45087634300403906,
+    "peak": 151203,
+    "lead_peak": 66637,
+    "startup": 30570.0,
+    "rebuys": 0,
+    "new_failures": [],
+    "stopped": null
+   }
+  },
+  {
+   "arm": "lean",
+   "ref": "v1",
+   "cap": 100000000.0,
+   "session": "28aff5dc-61e8-4fe1-a5a2-c13883db5371",
+   "wall_s": 2225,
+   "stopped": null,
+   "exit": 0,
+   "usd": 4.74630494,
+   "grade": {
+    "new_failures": [],
+    "tasks": [
+     {
+      "task": "timeouts",
+      "hidden": "pass",
+      "detail": ""
+     }
+    ]
+   },
+   "measure": {
+    "sid": "28aff5dc-61e8-4fe1-a5a2-c13883db5371",
+    "label": "Complete the tasks described in ../tasks.md in this reposito",
+    "hours": 0.6102225,
+    "agents": 12,
+    "tokens": 4960819,
+    "cost": 1001042.6,
+    "reads": 0.46225115694377045,
+    "writes": 0.37555594537135584,
+    "output": 0.16187123305241954,
+    "startup": 5781.0,
+    "top5": 0.5374920955592212,
+    "peak": 49323,
+    "lead_peak": 88421,
+    "above": 0.0,
+    "rewrites": 0,
+    "per_call": 1.144736842105263,
+    "by_role": [
+     [
+      "lead",
+      0.38673311805973976,
+      1
+     ],
+     [
+      "builder",
+      0.3576282464649486,
+      2
+     ],
+     [
+      "reviewer",
+      0.14053022293294717,
+      3
+     ],
+     [
+      "fixer",
+      0.09373049087257568,
+      2
+     ],
+     [
+      "runner",
+      0.0213779216697888,
+      5
+     ]
+    ],
+    "by_model": [
+     [
+      "claude-opus-5-5",
+      0.9540604081705057
+     ],
+     [
+      "claude-sonnet-5-5",
+      0.024561670159705486
+     ],
+     [
+      "claude-haiku-5-5",
+      0.0213779216697888
+     ]
+    ],
+    "diagnosis": {
+     "total": 4960819,
+     "causes": [
+      {
+       "cause": "start-up",
+       "tokens": 1863118,
+       "share": 0.37556661510931966,
+       "fix": "Use role agents, disable plugins the repository never uses, switch claude.ai connectors off",
+       "culprits": [
+        [
+         "(main thread)",
+         1086736
+        ],
+        [
+         "Build Part B: executor timeouts",
+         206220
+        ],
+        [
+         "Build Part A: parsing, errors, docs",
+         154997
+        ]
+       ]
+      },
+      {
+       "cause": "other context",
+       "tokens": 1503666,
+       "share": 0.3031084181865938,
+       "fix": "Context that grew with no recorded source: compaction summaries, attachments",
+       "culprits": [
+        [
+         "Build Part B: executor timeouts",
+         515970
+        ],
+        [
+         "Build Part A: parsing, errors, docs",
+         296370
+        ],
+        [
+         "(main thread)",
+         243387
+        ]
+       ]
+      },
+      {
+       "cause": "file reads",
+       "tokens": 335700,
+       "share": 0.06767032822604493,
+       "fix": "Lower LEAN_MAX_LINES or add these paths to LEAN_ALWAYS_RANGED, so they are read by range",
+       "culprits": [
+        [
+         "C:\\bw\\run4\\long\\lean\\repo\\task.go",
+         64686
+        ],
+        [
+         "~\\.claude\\projects\\C--bw-run4-long-lean-repo\\28aff5dc-61e8-4fe1-a5a2-c13883db5371\\tool-results\\b5rdtqrrc.txt (whole)",
+         52991
+        ],
+        [
+         "C:\\bw\\run4\\long\\lean\\lean-notes\\main.brief.md (whole)",
+         31053
+        ]
+       ]
+      },
+      {
+       "cause": "messages",
+       "tokens": 333365,
+       "share": 0.06719950530338233,
+       "fix": "Cut hook output and long pasted text; system reminders count here",
+       "culprits": [
+        [
+         "mcp_instructions_delta",
+         156156
+        ],
+        [
+         "(user and system messages)",
+         92580
+        ],
+        [
+         "total_tokens_reminder",
+         30706
+        ]
+       ]
+      },
+      {
+       "cause": "own output",
+       "tokens": 320751,
+       "share": 0.0646568633521438,
+       "fix": "Ask for shorter replies and plans; large Write and Edit contents count here",
+       "culprits": [
+        [
+         "(main thread)",
+         236870
+        ],
+        [
+         "Build Part A: parsing, errors, docs",
+         41927
+        ],
+        [
+         "Build Part B: executor timeouts",
+         22612
+        ]
+       ]
+      },
+      {
+       "cause": "shell output",
+       "tokens": 269552,
+       "share": 0.054336122947170946,
+       "fix": "Lower bashOutputMaxChars and put quiet test flags in the brief",
+       "culprits": [
+        [
+         "cd /c/bw/run4/long/lean/repo; git show ce7d4b02 -- errors executor.go setup.go t",
+         24483
+        ],
+        [
+         "grep -n \"func \\|IgnoreError\\|Defer\" taskfile/ast/cmd.go taskfile/ast/dep.go task",
+         20683
+        ],
+        [
+         "cd /c/bw/run4/long/lean/repo; tr -d '\\r' < internal/execext/exec.go | sed -n 140",
+         18178
+        ]
+       ]
+      },
+      {
+       "cause": "re-reads",
+       "tokens": 164392,
+       "share": 0.033138126990724714,
+       "fix": "Write module notes and put what agents need in the brief",
+       "culprits": [
+        [
+         "C:\\bw\\run4\\long\\lean\\repo\\task.go",
+         88746
+        ],
+        [
+         "C:\\bw\\run4\\long\\lean\\lean-notes\\main.brief.md",
+         40934
+        ],
+        [
+         "C:\\bw\\run4\\long\\lean\\tasks.md",
+         23585
+        ]
+       ]
+      },
+      {
+       "cause": "search output",
+       "tokens": 71517,
+       "share": 0.014416419950012286,
+       "fix": "Search narrower: give a path or glob, and limit the matches",
+       "culprits": [
+        [
+         "Grep (?i)timeout|124|once|ignore|blame|if:",
+         16172
+        ],
+        [
+         "Grep Cmds|Deps|cmd\\.|dep\\.",
+         9004
+        ],
+        [
+         "Grep func \\(err \\*TaskfileDecodeError\\)|func NewTaskfileDecodeError",
+         8924
+        ]
+       ]
+      },
+      {
+       "cause": "subagent reports",
+       "tokens": 58593,
+       "share": 0.011811204964341574,
+       "fix": "Ask the role agents for shorter reports",
+       "culprits": [
+        [
+         "Build Part A: parsing, errors, docs",
+         12070
+        ],
+        [
+         "Fix Part B review findings",
+         7447
+        ],
+        [
+         "Final full suite run",
+         6271
+        ]
+       ]
+      },
+      {
+       "cause": "other tool output",
+       "tokens": 7757,
+       "share": 0.0015636027035052075,
+       "fix": "Check which tool this is and whether its output can be cut",
+       "culprits": [
+        [
+         "Edit",
+         3851
+        ],
+        [
+         "Write",
+         2410
+        ],
+        [
+         "ScheduleWakeup",
+         994
+        ]
+       ]
+      }
+     ],
+     "patterns": [
+      {
+       "pattern": "model mix",
+       "value": 575299,
+       "unit": "tokens",
+       "fix": "Set the model per role: the smallest for runners, mid-tier for reviewers and shippers",
+       "culprits": [
+        [
+         "Review Part B executor commit",
+         427292
+        ],
+        [
+         "Round 2 review of fixes",
+         148007
+        ]
+       ]
+      }
+     ],
+     "coverage": 0.5094543979971898
+    },
+    "health": [],
+    "series": [
+     {
+      "ts": "2026-10-10T15:52:25.765Z",
+      "ctx": 38812,
+      "out": 166,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:52:28.742Z",
+      "ctx": 42209,
+      "out": 239,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:52:36.434Z",
+      "ctx": 43309,
+      "out": 359,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:52:42.150Z",
+      "ctx": 44769,
+      "out": 198,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:52:46.339Z",
+      "ctx": 51439,
+      "out": 726,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:52:57.498Z",
+      "ctx": 54502,
+      "out": 2458,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:53:19.025Z",
+      "ctx": 57047,
+      "out": 144,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:53:24.505Z",
+      "ctx": 58455,
+      "out": 2661,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:53:49.532Z",
+      "ctx": 61255,
+      "out": 536,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:58:25.012Z",
+      "ctx": 62861,
+      "out": 1224,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:58:35.561Z",
+      "ctx": 64938,
+      "out": 163,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:58:37.755Z",
+      "ctx": 65212,
+      "out": 19,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T15:59:15.483Z",
+      "ctx": 66897,
+      "out": 46,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:04:59.338Z",
+      "ctx": 68360,
+      "out": 951,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:05:07.450Z",
+      "ctx": 70168,
+      "out": 20,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:05:44.402Z",
+      "ctx": 71156,
+      "out": 25,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:09:01.951Z",
+      "ctx": 73341,
+      "out": 1099,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:12:52.062Z",
+      "ctx": 75571,
+      "out": 873,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:12:59.398Z",
+      "ctx": 77294,
+      "out": 19,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:13:46.969Z",
+      "ctx": 78341,
+      "out": 26,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:19:54.068Z",
+      "ctx": 80000,
+      "out": 851,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:22:13.116Z",
+      "ctx": 81828,
+      "out": 415,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:23:24.476Z",
+      "ctx": 83422,
+      "out": 570,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:23:29.420Z",
+      "ctx": 84111,
+      "out": 12,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:24:42.907Z",
+      "ctx": 85032,
+      "out": 460,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:27:31.736Z",
+      "ctx": 86790,
+      "out": 133,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:27:41.398Z",
+      "ctx": 87025,
+      "out": 1385,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:29:02.566Z",
+      "ctx": 88421,
+      "out": 170,
+      "agent": 0
+     },
+     {
+      "ts": "2026-10-10T16:20:03.264Z",
+      "ctx": 6695,
+      "out": 199,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:20:06.340Z",
+      "ctx": 11467,
+      "out": 140,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:20:13.823Z",
+      "ctx": 13269,
+      "out": 8,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:20:50.176Z",
+      "ctx": 14825,
+      "out": 8,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:21:59.340Z",
+      "ctx": 16275,
+      "out": 4,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:22:11.009Z",
+      "ctx": 16692,
+      "out": 696,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:23:31.112Z",
+      "ctx": 17718,
+      "out": 229,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:23:34.782Z",
+      "ctx": 18751,
+      "out": 4,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:24:22.362Z",
+      "ctx": 19472,
+      "out": 4,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T16:24:35.659Z",
+      "ctx": 19810,
+      "out": 397,
+      "agent": 1
+     },
+     {
+      "ts": "2026-10-10T15:58:30.775Z",
+      "ctx": 5757,
+      "out": 106,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:58:34.913Z",
+      "ctx": 11980,
+      "out": 220,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:58:39.139Z",
+      "ctx": 13278,
+      "out": 212,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:58:49.865Z",
+      "ctx": 17844,
+      "out": 3,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:58:57.089Z",
+      "ctx": 23002,
+      "out": 4,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:59:02.465Z",
+      "ctx": 23698,
+      "out": 103,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T15:59:12.001Z",
+      "ctx": 24479,
+      "out": 1160,
+      "agent": 2
+     },
+     {
+      "ts": "2026-10-10T16:05:06.523Z",
+      "ctx": 5836,
+      "out": 162,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:05:09.180Z",
+      "ctx": 8491,
+      "out": 125,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:05:11.372Z",
+      "ctx": 15716,
+      "out": 124,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:05:35.270Z",
+      "ctx": 20004,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:05:53.512Z",
+      "ctx": 25492,
+      "out": 4,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:06:05.247Z",
+      "ctx": 30704,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:06:43.197Z",
+      "ctx": 32170,
+      "out": 6,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:06:57.735Z",
+      "ctx": 33095,
+      "out": 3,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:07:16.569Z",
+      "ctx": 34145,
+      "out": 7,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:07:20.450Z",
+      "ctx": 34378,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:07:47.028Z",
+      "ctx": 34814,
+      "out": 3,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:08:02.756Z",
+      "ctx": 35329,
+      "out": 225,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:08:24.542Z",
+      "ctx": 37371,
+      "out": 3,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:08:40.150Z",
+      "ctx": 39180,
+      "out": 8,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T16:08:51.026Z",
+      "ctx": 39867,
+      "out": 6,
+      "agent": 3
+     },
+     {
+      "ts": "2026-10-10T15:52:49.863Z",
+      "ctx": 4131,
+      "out": 162,
+      "agent": 4
+     },
+     {
+      "ts": "2026-10-10T15:53:14.645Z",
+      "ctx": 7860,
+      "out": 3,
+      "agent": 4
+     },
+     {
+      "ts": "2026-10-10T16:09:13.220Z",
+      "ctx": 7035,
+      "out": 16,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:09:16.802Z",
+      "ctx": 11613,
+      "out": 16,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:09:20.718Z",
+      "ctx": 13939,
+      "out": 7,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:09:43.461Z",
+      "ctx": 17720,
+      "out": 8,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:09:48.613Z",
+      "ctx": 20934,
+      "out": 8,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:10:00.660Z",
+      "ctx": 21864,
+      "out": 33,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:10:09.685Z",
+      "ctx": 22650,
+      "out": 5,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:10:14.067Z",
+      "ctx": 23281,
+      "out": 32,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:10:43.746Z",
+      "ctx": 25128,
+      "out": 7,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:11:03.975Z",
+      "ctx": 26874,
+      "out": 3,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:11:49.420Z",
+      "ctx": 27746,
+      "out": 8,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:11:53.061Z",
+      "ctx": 28793,
+      "out": 40,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:12:32.336Z",
+      "ctx": 29392,
+      "out": 3,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:12:50.764Z",
+      "ctx": 30306,
+      "out": 856,
+      "agent": 5
+     },
+     {
+      "ts": "2026-10-10T16:12:58.634Z",
+      "ctx": 5805,
+      "out": 130,
+      "agent": 6
+     },
+     {
+      "ts": "2026-10-10T16:13:01.033Z",
+      "ctx": 9154,
+      "out": 16,
+      "agent": 6
+     },
+     {
+      "ts": "2026-10-10T16:13:12.428Z",
+      "ctx": 13921,
+      "out": 3,
+      "agent": 6
+     },
+     {
+      "ts": "2026-10-10T16:13:19.628Z",
+      "ctx": 15727,
+      "out": 3,
+      "agent": 6
+     },
+     {
+      "ts": "2026-10-10T16:14:36.460Z",
+      "ctx": 16403,
+      "out": 2,
+      "agent": 6
+     },
+     {
+      "ts": "2026-10-10T16:15:20.457Z",
+      "ctx": 16748,
+      "out": 200,
+      "agent": 6
+     },
+     {
+      "ts": "2026-10-10T16:15:54.107Z",
+      "ctx": 16987,
+      "out": 7,
+      "agent": 6
+     },
+     {
+      "ts": "2026-10-10T16:17:12.747Z",
+      "ctx": 17303,
+      "out": 8,
+      "agent": 6
+     },
+     {
+      "ts": "2026-10-10T16:17:49.718Z",
+      "ctx": 17610,
+      "out": 7,
+      "agent": 6
+     },
+     {
+      "ts": "2026-10-10T16:19:46.665Z",
+      "ctx": 17965,
+      "out": 8,
+      "agent": 6
+     },
+     {
+      "ts": "2026-10-10T15:58:35.386Z",
+      "ctx": 6874,
+      "out": 16,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T15:58:39.190Z",
+      "ctx": 12989,
+      "out": 8,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T15:58:44.450Z",
+      "ctx": 19019,
+      "out": 16,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T15:59:12.150Z",
+      "ctx": 21154,
+      "out": 10,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T15:59:16.838Z",
+      "ctx": 25723,
+      "out": 16,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T15:59:20.113Z",
+      "ctx": 26395,
+      "out": 8,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T15:59:25.785Z",
+      "ctx": 27750,
+      "out": 4,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T15:59:30.295Z",
+      "ctx": 28223,
+      "out": 4,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T15:59:39.215Z",
+      "ctx": 29261,
+      "out": 5,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T15:59:48.878Z",
+      "ctx": 30545,
+      "out": 2,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T15:59:56.233Z",
+      "ctx": 31412,
+      "out": 7,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:00:02.722Z",
+      "ctx": 32365,
+      "out": 16,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:00:17.944Z",
+      "ctx": 32805,
+      "out": 197,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:00:56.043Z",
+      "ctx": 33210,
+      "out": 3,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:00:59.148Z",
+      "ctx": 34077,
+      "out": 114,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:01:26.434Z",
+      "ctx": 34800,
+      "out": 8,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:01:35.343Z",
+      "ctx": 37681,
+      "out": 955,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:01:39.220Z",
+      "ctx": 38722,
+      "out": 8,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:01:58.671Z",
+      "ctx": 41467,
+      "out": 7,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:02:18.941Z",
+      "ctx": 41748,
+      "out": 6,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:02:50.912Z",
+      "ctx": 42197,
+      "out": 4,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:03:01.141Z",
+      "ctx": 42875,
+      "out": 6,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:03:15.915Z",
+      "ctx": 43699,
+      "out": 6,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:03:20.185Z",
+      "ctx": 44327,
+      "out": 291,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:03:52.539Z",
+      "ctx": 44942,
+      "out": 8,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:04:12.893Z",
+      "ctx": 45468,
+      "out": 8,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:04:17.459Z",
+      "ctx": 45882,
+      "out": 16,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:04:20.741Z",
+      "ctx": 47414,
+      "out": 4,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:04:38.444Z",
+      "ctx": 48232,
+      "out": 27,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:04:56.617Z",
+      "ctx": 49323,
+      "out": 916,
+      "agent": 7
+     },
+     {
+      "ts": "2026-10-10T16:05:07.271Z",
+      "ctx": 4220,
+      "out": 16,
+      "agent": 8
+     },
+     {
+      "ts": "2026-10-10T16:05:15.019Z",
+      "ctx": 6364,
+      "out": 2,
+      "agent": 8
+     },
+     {
+      "ts": "2026-10-10T16:05:38.326Z",
+      "ctx": 8370,
+      "out": 4,
+      "agent": 8
+     },
+     {
+      "ts": "2026-10-10T16:05:42.036Z",
+      "ctx": 8701,
+      "out": 469,
+      "agent": 8
+     },
+     {
+      "ts": "2026-10-10T16:22:16.953Z",
+      "ctx": 4295,
+      "out": 7,
+      "agent": 9
+     },
+     {
+      "ts": "2026-10-10T16:22:25.652Z",
+      "ctx": 7028,
+      "out": 2,
+      "agent": 9
+     },
+     {
+      "ts": "2026-10-10T16:23:17.857Z",
+      "ctx": 9630,
+      "out": 4,
+      "agent": 9
+     },
+     {
+      "ts": "2026-10-10T15:53:51.350Z",
+      "ctx": 6739,
+      "out": 16,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:53:55.705Z",
+      "ctx": 11227,
+      "out": 16,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:54:01.272Z",
+      "ctx": 16368,
+      "out": 3,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:54:05.829Z",
+      "ctx": 20665,
+      "out": 8,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:54:08.152Z",
+      "ctx": 21322,
+      "out": 132,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:54:10.119Z",
+      "ctx": 22570,
+      "out": 2,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:54:14.727Z",
+      "ctx": 23011,
+      "out": 8,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:54:18.963Z",
+      "ctx": 24578,
+      "out": 5,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:54:31.672Z",
+      "ctx": 26133,
+      "out": 3,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:55:08.976Z",
+      "ctx": 29335,
+      "out": 8,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:55:15.194Z",
+      "ctx": 29755,
+      "out": 9,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:55:36.061Z",
+      "ctx": 30651,
+      "out": 2790,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:56:14.414Z",
+      "ctx": 33775,
+      "out": 8,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:56:22.494Z",
+      "ctx": 34675,
+      "out": 6,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:56:26.140Z",
+      "ctx": 36082,
+      "out": 118,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:56:32.585Z",
+      "ctx": 39984,
+      "out": 8,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:56:45.032Z",
+      "ctx": 41633,
+      "out": 3,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:56:54.226Z",
+      "ctx": 42894,
+      "out": 7,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:57:03.674Z",
+      "ctx": 44190,
+      "out": 1001,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:57:06.229Z",
+      "ctx": 45672,
+      "out": 9,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:57:52.010Z",
+      "ctx": 46656,
+      "out": 308,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:58:14.044Z",
+      "ctx": 47163,
+      "out": 1636,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T15:58:22.899Z",
+      "ctx": 48878,
+      "out": 794,
+      "agent": 10
+     },
+     {
+      "ts": "2026-10-10T16:24:45.992Z",
+      "ctx": 4393,
+      "out": 9,
+      "agent": 11
+     },
+     {
+      "ts": "2026-10-10T16:26:14.506Z",
+      "ctx": 8514,
+      "out": 6,
+      "agent": 11
+     },
+     {
+      "ts": "2026-10-10T16:27:26.793Z",
+      "ctx": 10544,
+      "out": 6,
+      "agent": 11
+     },
+     {
+      "ts": "2026-10-10T16:12:59.459Z",
+      "ctx": 4210,
+      "out": 16,
+      "agent": 12
+     },
+     {
+      "ts": "2026-10-10T16:13:36.932Z",
+      "ctx": 8149,
+      "out": 5,
+      "agent": 12
+     },
+     {
+      "ts": "2026-10-10T16:13:40.982Z",
+      "ctx": 8400,
+      "out": 532,
+      "agent": 12
+     }
+    ]
+   },
+   "figures": {
+    "tokens": 4960819,
+    "cost": 1001042.6,
+    "usd": 4.74630494,
+    "passed": 1,
+    "of": 1,
+    "tokens_per_pass": 4960819.0,
+    "wall_min": 37.083333333333336,
+    "min_per_task": 37.083333333333336,
+    "above_100k": 0.0,
+    "peak": 49323,
+    "lead_peak": 88421,
+    "startup": 5781.0,
+    "rebuys": 0,
+    "new_failures": [],
+    "stopped": null
+   }
+  }
+ ]
+}
