@@ -1,6 +1,6 @@
 {
   "name": "lean-agents",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cut the tokens multi-agent Claude Code runs use: role agents with small start-up, early hand-over, read and shell guards, and a script that measures the result from your own transcripts.",
   "keywords": ["tokens", "cost", "subagents", "multi-agent", "context"]
 }

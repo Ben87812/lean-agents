@@ -8,6 +8,8 @@ sh run.sh <work folder> <path to lean-agents>
 
 Then, inside `<work folder>/baseline` and `<work folder>/lean`, run `python <path to lean-agents>/scripts/agent-tokens.py` for the session list and add the session id for the detail.
 
+`tasks.md` is the text of the five issues as it stood for the published run (no issue was edited after it). It is kept here instead of fetched when you run the kit, because issue text can be written or edited by anyone and the agents run with a shell. The run without the plugin switches off any installed copy of lean-agents, so the comparison holds even with the plugin installed.
+
 `tasks-notes.md` lists 8 tests that failed before any change on the Windows machine used for the published result. On another platform, run the suite once first and edit that list.
 
 Agent runs vary, so expect your figures to differ from the published ones, and run more than once if you can.
