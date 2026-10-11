@@ -105,7 +105,7 @@ Caveats, plainly:
 
 - **One run per arm.** Agent runs vary; treat the figures as one data point, not an average.
 - **Both runs delivered working code.** Without the plugin, the run's own new test file defined a helper differently from the hidden test file, so the package did not compile until that file was set aside; then every hidden test passed. This is not a quality difference.
-- **The saving is in tokens more than money or time here.** The run with the plugin started 12 agents against 4. Each fresh agent pays to write its start-up context to the cache, and the briefs, notes and reports between them are output, which costs more per token. So cache reads fell by 61% but cache writes only by 25%, output doubled, and cost fell by 29%. It finished in about the same time.
+- **The saving is in tokens more than money or time here.** With the plugin, the lead agent became the biggest cost: 39% of the run's tokens, because its 39k start-up (system prompt plus every installed plugin's listings) is re-sent on each of its 28 calls. Its agents also wrote twice the output. So cost fell by 29%, and the run took about the same time, because the agents ran one after another. Both are what the next cuts target.
 - **Two earlier attempts were thrown out**: in the first, the run without the plugin had the plugin installed; in the second, the runs could read each other's notes, and an agent in a third could reach the real fix through git history. The harness now prevents all three.
 
 The [replay](bench/results/2026-10-10-long/post-replay.mp4) shows both runs as they happened. To rerun it, see [`bench`](bench).
