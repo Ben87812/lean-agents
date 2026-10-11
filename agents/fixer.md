@@ -1,7 +1,7 @@
 ---
 name: fixer
 description: Fixes specific failing tests or review findings on a task branch, starting from notes, the brief and the failure output rather than re-exploring the codebase.
-tools: Read, Edit, Write, Grep, Bash
+tools: Read, Edit, Write, Grep, Bash, PowerShell
 model: inherit
 maxTurns: 35
 omitClaudeMd: true

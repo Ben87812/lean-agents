@@ -1,7 +1,7 @@
 ---
 name: reviewer
 description: Reviews one task's diff against its brief, without editing. Cheap by default; the lead can override the model to the strongest one for risky changes.
-tools: Read, Grep, Bash
+tools: Read, Grep, Bash, PowerShell
 model: sonnet
 maxTurns: 30
 omitClaudeMd: true

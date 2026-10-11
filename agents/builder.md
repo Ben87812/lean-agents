@@ -1,7 +1,7 @@
 ---
 name: builder
 description: Builds one task, or one part of a task, on its branch, then hands over to a fresh builder before its context grows large. Use for implementation in multi-agent runs.
-tools: Read, Edit, Write, Grep, Bash
+tools: Read, Edit, Write, Grep, Bash, PowerShell
 model: inherit
 maxTurns: 40
 omitClaudeMd: true

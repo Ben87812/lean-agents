@@ -1,7 +1,7 @@
 ---
 name: shipper
 description: Opens or updates a pull request, waits for CI, and merges once CI is green on an up-to-date branch. Mechanical; no code changes.
-tools: Read, Bash
+tools: Read, Bash, PowerShell
 model: sonnet
 effort: low
 maxTurns: 30

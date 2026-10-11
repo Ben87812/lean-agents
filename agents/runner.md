@@ -1,7 +1,7 @@
 ---
 name: runner
 description: Runs named checks (tests, builds, linters, scripts) in a worktree and reports only the result and the failures. Cheap and short-lived; never edits.
-tools: Bash, Read
+tools: Bash, PowerShell, Read
 model: haiku
 effort: low
 maxTurns: 15

@@ -157,7 +157,7 @@ Ask Claude to build several tasks with subagents, or say "use lean-agent-runs". 
 | `LEAN_MAX_RANGE` | 250 | Widest `sed -n` or `Select-Object` range |
 | `LEAN_ALWAYS_RANGED` | empty | Path endings that are always read by range |
 
-The role agents use `Bash`. On Windows without Git Bash, change `Bash` to `PowerShell` in `agents/*.md`.
+The role agents have both `Bash` and `PowerShell`; Claude Code offers `PowerShell` only on Windows, and agents there can use whichever shell the project prefers.
 
 ## License
 
